@@ -1,0 +1,49 @@
+{% include 'C:\Users\tania\OneDrive\Робочий стіл\development 5\taskly\templates\profile\base.html'%}
+{% include 'cal/base.html' %}
+
+{% block title %}
+<h2 class="centered">Calendar<h2>
+{% endblock %}
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+   
+  
+		.form-layout {
+			border-radius: 10px;
+		
+			
+		}
+		
+		.message-text{
+			color: white;
+		}
+
+	</style>
+
+	<title> Taskly </title>
+
+</head>
+
+{% block content %}
+<div class="clearfix">
+	<a class="btn btn-info left" href="{% url 'cal:calendar' %}?{{ prev_month }}"> Previous Month </a>
+	<a class="btn btn-info right" href="{% url 'cal:calendar' %}?{{ next_month }}"> Next Month </a>
+	<a class="btn btn-primary navbar-btn right" href="{% url 'create-task' %}"> New Task </a>
+</div>
+<div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 20px;width:68%;">
+
+{{ calendar }}
+
+</div>
+{% endblock %}
+

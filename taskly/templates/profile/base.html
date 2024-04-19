@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <style>
+        div {
+          margin-top: 10px; /* Додайте бажаний відступ вгорі */
+          margin-bottom: 10px; /* Додайте бажаний відступ внизу */
+      }
+    
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+    <a class="navbar-brand main-heading" href="#"> &nbsp; Taskly </a>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="btn btn-primary navbar-btn activeButton" href="{% url 'dashboard' %}">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                &nbsp;
+                <a class="btn btn-primary navbar-btn" href="{% url 'create-task' %}">Create task</a>
+            </li>
+            <li class="nav-item">
+                &nbsp;
+                <a class="btn btn-primary navbar-btn" href="{% url 'view-tasks' %}">View tasks</a>
+            </li>
+            <li class="nav-item">
+                &nbsp;
+                <a class="btn btn-primary navbar-btn" href="{% url 'activity' %}">Activity</a>
+            </li>
+            <li class="nav-item">
+                &nbsp;
+                <a class="btn btn-primary navbar-btn" href="{% url 'cal:calendar' %}">Calendar</a>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="btn btn-primary navbar-btn" href="{% url 'user-logout' %}">Logout</a>
+            &nbsp;
+        </li>
+    </ul>
+</nav>
+
+
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+    var activeButton = sessionStorage.getItem('activeButton');
+
+   
+
+
+    if(activeButton && activeButton !== '{% url "user-logout" %}') {
+      $("a[href='" + activeButton + "']").addClass("active");
+    }
+    var currentUrl = window.location.href;
+
+    if(currentUrl == '{% url "user-logout" %}') {
+      $("a[href='" + '{% url 'dashboard' %}' + "']").addClass("active");
+    } 
+    
+
+
+    $(".navbar-btn").click(function(){
+        $(".navbar-btn").removeClass("active");
+        $(this).addClass("active");
+        sessionStorage.setItem('activeButton', $(this).attr('href'));
+    });
+});
+</script>

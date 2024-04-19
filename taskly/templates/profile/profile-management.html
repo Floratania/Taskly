@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly | Profile management</title>
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    
+</head>
+
+<body>
+    {% include 'profile/base.html' %}
+
+    <br>
+
+    
+    <hr>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h3 class="text-center">Update your profile</h3>
+
+        <br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ user_form.username|as_crispy_field }}
+            <br>
+            {{ user_form.email|as_crispy_field }}
+            <br>
+            {{ phone_number_form.phone_number|as_crispy_field }}
+            <br> <br>
+            <div class="text-center">
+                <input class="btn btn-outline-primary navbar-btn" type="submit" value="Update profile" />
+            </div>
+        </form>
+    </div>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 20px;">
+        <h3 class="text-center">Update your profile picture</h3>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+           
+            {{ form_2.profile_pic|as_crispy_field }}
+
+            <br>
+            <div class="text-center">
+                <input class="btn btn-outline-primary navbar-btn" type="submit" value="Update profile picture" />
+            </div>
+        </form>
+    </div>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 20px;">
+        <h3 class="text-center">Change password</h3>
+        <hr>
+        <div class="text-center">
+            <a class="btn btn-outline-primary navbar-btn" type="button" href="{% url 'change-password' %}">Change password</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 20px;">
+        <h3 class="text-center">Delete account</h3>
+        <hr>
+        <div class="text-center">
+            <a class="btn btn-outline-danger navbar-btn" type="button" href="{% url 'delete-account' %}">Delete your account</a>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

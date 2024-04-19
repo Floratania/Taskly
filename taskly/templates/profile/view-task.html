@@ -1,0 +1,99 @@
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+
+
+  <style>
+   
+  
+  .form-layout {
+      border-radius: 10px;
+  
+      width: 500px;
+      margin: auto;
+  }
+  
+  .message-text{
+      color: white;
+  }
+  </style>
+
+  <title> Taskly </title>
+
+</head>
+{%include 'profile/base.html'%}
+
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                {{ field.label }} <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            {{ field.label }} <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <div class="container bg-white shadow-md p-5 form-layout" style="margin-top:20px;">
+
+    <h3> {{instance.title}} </h3>
+
+    <br>
+
+
+    Additional Information:
+    
+    <br>
+
+    {{ instance.content }}
+
+    <br> <br>
+
+    Data add:  {{instance.date_posted|date:"F j, Y"}}
+
+    <br> <br>
+
+    Status:  {{instance.get_status_display}}
+
+    <br> <br>
+
+    Due to:  {{ instance.do_to|date:"F j, Y" }}
+
+    <br> <br>
+
+    {% if instance.status == 'option3' %}
+        Date end: {{ instance.date_end |date:"F j, Y" }}
+        <br> <br>
+    {% endif %}
+
+
+
+    <a class="btn btn-outline-primary navbar-btn btn-sm" type="button" href="{% url 'update-task' instance.id %}">Update tasks</a>
+
+    &nbsp;
+
+    <a class="btn btn-outline-danger navbar-btn btn-sm" type="button" href="{% url 'delete-task' instance.id %}">Delete tasks</a>
+
+    <br> <br>
+
+</div>
+</form>
+{% endblock %}
