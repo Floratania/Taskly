@@ -1,0 +1,79 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>{% trans "Taskly" %}</title>
+    <style>
+        div {
+            margin-top: 10px; 
+            margin-bottom: 10px; 
+        }
+    </style>
+</head>
+<body>
+    {% include 'uplinenav.html' %}
+    <br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h3>{% trans "This is our registration page!" %} </h3>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off" id="registration-form">
+            {% csrf_token %}
+            {{ form.username|as_crispy_field }}
+            {{ form.email|as_crispy_field }}
+            {{ form.phone_number|as_crispy_field }}
+            {{ form.password1|as_crispy_field }}
+            {{ form.password2|as_crispy_field }}
+            <div>
+                <label for="data-processing">{% trans "I consent to the processing of my personal data:" %}</label>
+                <input type="checkbox" id="data-processing">
+            </div>
+            <div>
+                <label for="app-terms">{% trans "I agree to the terms of the application:" %}</label>
+                <input type="checkbox" id="app-terms">
+            </div>
+            <div style="text-align:center">
+                <input class="btn btn-outline-primary" type="submit" value="{% trans "Register" %}" disabled>
+            </div>
+            <br>
+            <p>{% trans "Already have an account?" %} <a href="{% url 'my-login' %}">{% trans "Login" %}</a></p>
+        </form>
+    </div>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#data-processing, #app-terms').change(function(){
+                if ($('#data-processing').is(':checked') && $('#app-terms').is(':checked')) {
+                    $('#registration-form input[type="submit"]').prop('disabled', false);
+                } else {
+                    $('#registration-form input[type="submit"]').prop('disabled', true);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        var activeButton = sessionStorage.getItem('activeButton');
+        if(activeButton === '{% url "my-login" %}') {
+            $("a[href='" + '{% url "register" %}' + "']").addClass("active");
+        }
+        if(activeButton === '{% url "register" %}'){
+            $("a[href='" + activeButton + "']").addClass("active");
+        }
+        $(".navbar-btn").click(function(){
+            $(".navbar-btn").removeClass("active");
+            $(this).addClass("active");
+            sessionStorage.setItem('activeButton', $(this).attr('href'));
+        });
+    });
+</script>

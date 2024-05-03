@@ -1,0 +1,421 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-24 21:57+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\taskly\templates\change_password.html:32
+#: .\taskly\templates\change_password.html:58
+#: .\taskly\templates\profile\profile-management.html:63
+#: .\taskly\templates\profile\profile-management.html:66
+#, fuzzy
+#| msgid "Forget password?"
+msgid "Change password"
+msgstr "Forget password?"
+
+#: .\taskly\templates\index.html:63 .\taskly\templates\index.html:104
+#: .\taskly\templates\my-login.html:84 .\taskly\templates\register.html:43
+#: .\taskly\templates\uplinenav.html:62
+msgid "Register"
+msgstr "Register"
+
+#: .\taskly\templates\index.html:73 .\taskly\templates\my-login.html:61
+#: .\taskly\templates\register.html:46 .\taskly\templates\uplinenav.html:72
+msgid "Login"
+msgstr "Login"
+
+#: .\taskly\templates\index.html:99
+msgid "Welcome to Taskly - a home for your tasks."
+msgstr "Welcome to Taskly - a home for your tasks."
+
+#: .\taskly\templates\my-login.html:39
+msgid "This is our login page!"
+msgstr "This is our login page!"
+
+#: .\taskly\templates\my-login.html:84
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: .\taskly\templates\my-login.html:87
+msgid "Forget password?"
+msgstr "Forget password?"
+
+#: .\taskly\templates\my-login.html:87
+#: .\taskly\templates\password_reset_confirm.html:5
+#: .\taskly\templates\password_reset_confirm.html:9
+#: .\taskly\templates\password_reset_form.html:31
+msgid "Reset Password"
+msgstr "Reset Password"
+
+#: .\taskly\templates\password_reset_complete.html:5
+msgid "Password Reset Complete"
+msgstr ""
+
+#: .\taskly\templates\password_reset_complete.html:6
+msgid "Your password has been successfully reset."
+msgstr ""
+
+#: .\taskly\templates\password_reset_done.html:12
+#: .\taskly\templates\password_reset_form.html:11
+#: .\taskly\templates\profile\base.html:9
+#: .\taskly\templates\profile\base.html:26
+#: .\taskly\templates\profile\create-task.html:17
+#: .\taskly\templates\profile\dashboard.html:12
+#: .\taskly\templates\profile\delete-task.html:17
+#: .\taskly\templates\profile\update-task.html:17
+#: .\taskly\templates\profile\view-task.html:2
+#: .\taskly\templates\profile\view-tasks.html:12
+#: .\taskly\templates\register.html:12
+msgid "Taskly"
+msgstr ""
+
+#: .\taskly\templates\password_reset_done.html:24
+msgid "Password Reset Email Sent"
+msgstr ""
+
+#: .\taskly\templates\password_reset_done.html:25
+msgid "An email has been sent with instructions to reset your password."
+msgstr ""
+
+#: .\taskly\templates\password_reset_email.html:7
+msgid ""
+"\n"
+"If you didn't request a password reset, please ignore this email.\n"
+"\n"
+"Thank you,\n"
+"Your Website Team\n"
+msgstr ""
+
+#: .\taskly\templates\password_reset_form.html:27
+msgid "Password Reset"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:10
+msgid "Taskly - Historical Task Activity"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:36
+msgid "Your Activity Data"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:41
+#: .\taskly\templates\profile\dashboard.html:41
+msgid "Profile Picture"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:45
+msgid "Completed tasks:"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:46
+msgid "Assigned tasks:"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:47
+msgid "In-progress tasks:"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:57
+#, fuzzy
+#| msgid "Login"
+msgid "Last login:"
+msgstr "Login"
+
+#: .\taskly\templates\profile\activity.html:74
+msgid "'Number of added or updated task by day for the current month'"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:76
+msgid "'Date'"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:79
+#: .\taskly\templates\profile\activity.html:108
+msgid "'Number of Tasks'"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:94
+msgid "'Completed'"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:94
+msgid "'Assigned'"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:94
+msgid "'In Progress'"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:103
+msgid "'Task Activity'"
+msgstr ""
+
+#: .\taskly\templates\profile\activity.html:105
+msgid "'Task Status'"
+msgstr ""
+
+#: .\taskly\templates\profile\base.html:31
+msgid "Dashboard"
+msgstr ""
+
+#: .\taskly\templates\profile\base.html:35
+msgid "Create task"
+msgstr ""
+
+#: .\taskly\templates\profile\base.html:39
+#: .\taskly\templates\profile\view-tasks.html:20
+msgid "View tasks"
+msgstr ""
+
+#: .\taskly\templates\profile\base.html:43
+msgid "Activity"
+msgstr ""
+
+#: .\taskly\templates\profile\base.html:47
+msgid "Calendar"
+msgstr ""
+
+#: .\taskly\templates\profile\base.html:54
+#: .\taskly\templates\profile\dashboard.html:54
+msgid "Logout"
+msgstr ""
+
+#: .\taskly\templates\profile\create-task.html:27
+#: .\taskly\templates\profile\create-task.html:48
+msgid "Create a task"
+msgstr ""
+
+#: .\taskly\templates\profile\dashboard.html:38
+msgid "Profile"
+msgstr ""
+
+#: .\taskly\templates\profile\dashboard.html:44
+msgid "Name"
+msgstr ""
+
+#: .\taskly\templates\profile\dashboard.html:45
+msgid "Email"
+msgstr ""
+
+#: .\taskly\templates\profile\dashboard.html:46
+msgid "Phone"
+msgstr ""
+
+#: .\taskly\templates\profile\dashboard.html:50
+msgid "Edit profile"
+msgstr ""
+
+#: .\taskly\templates\profile\delete-account.html:17
+msgid "Taskly | Delete account"
+msgstr ""
+
+#: .\taskly\templates\profile\delete-account.html:27
+msgid "Delete account!"
+msgstr ""
+
+#: .\taskly\templates\profile\delete-account.html:37
+msgid "Are you sure that you want to delete this account?"
+msgstr ""
+
+#: .\taskly\templates\profile\delete-account.html:42
+#: .\taskly\templates\profile\profile-management.html:73
+#, fuzzy
+#| msgid "Don't have an account?"
+msgid "Delete account"
+msgstr "Don't have an account?"
+
+#: .\taskly\templates\profile\delete-account.html:48
+#: .\taskly\templates\profile\delete-task.html:48
+#: .\taskly\templates\profile\update-task.html:62
+msgid "Go back"
+msgstr ""
+
+#: .\taskly\templates\profile\delete-task.html:27
+msgid "Delete a task!"
+msgstr ""
+
+#: .\taskly\templates\profile\delete-task.html:37
+msgid "Are you sure that you want to delete this task?"
+msgstr ""
+
+#: .\taskly\templates\profile\delete-task.html:42
+msgid "Delete task"
+msgstr ""
+
+#: .\taskly\templates\profile\new_activity.html:4
+msgid "Task Dashboard"
+msgstr ""
+
+#: .\taskly\templates\profile\new_activity.html:15
+msgid "Number of tasks"
+msgstr ""
+
+#: .\taskly\templates\profile\profile-management.html:10
+msgid "Taskly | Profile management"
+msgstr ""
+
+#: .\taskly\templates\profile\profile-management.html:25
+msgid "Update your profile"
+msgstr ""
+
+#: .\taskly\templates\profile\profile-management.html:37
+msgid "Update profile"
+msgstr ""
+
+#: .\taskly\templates\profile\profile-management.html:45
+msgid "Update your profile picture"
+msgstr ""
+
+#: .\taskly\templates\profile\profile-management.html:55
+msgid "Update profile picture"
+msgstr ""
+
+#: .\taskly\templates\profile\profile-management.html:76
+msgid "Delete your account"
+msgstr ""
+
+#: .\taskly\templates\profile\update-task.html:28
+msgid "Update a task"
+msgstr ""
+
+#: .\taskly\templates\profile\update-task.html:56
+msgid "Update task"
+msgstr ""
+
+#: .\taskly\templates\profile\view-task.html:60
+msgid "Additional Information:"
+msgstr ""
+
+#: .\taskly\templates\profile\view-task.html:68
+msgid "Date added:"
+msgstr ""
+
+#: .\taskly\templates\profile\view-task.html:72
+msgid "Status:"
+msgstr ""
+
+#: .\taskly\templates\profile\view-task.html:76
+msgid "Due to:"
+msgstr ""
+
+#: .\taskly\templates\profile\view-task.html:81
+msgid "End date:"
+msgstr ""
+
+#: .\taskly\templates\profile\view-task.html:87
+msgid "Update tasks"
+msgstr ""
+
+#: .\taskly\templates\profile\view-task.html:91
+msgid "Delete tasks"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:24
+msgid "Filter by Status:"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:26
+msgid "All"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:27
+msgid "Assigned"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:28
+msgid "In progress"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:29
+msgid "Done"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:32
+msgid "Filter by Due Date:"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:35
+msgid "Filter"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:37
+msgid "Reset Filters"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:48
+msgid "Title"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:49
+msgid "Additional Information"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:50
+msgid "Date Added"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:51
+msgid "Status"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:52
+msgid "Due To"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:53
+msgid "Date End"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:54
+msgid "Actions"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:69
+msgid "Update Task"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:70
+msgid "Delete Task"
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:79
+msgid "No tasks found."
+msgstr ""
+
+#: .\taskly\templates\profile\view-tasks.html:86
+msgid "Create Task"
+msgstr ""
+
+#: .\taskly\templates\register.html:24
+#, fuzzy
+#| msgid "This is our login page!"
+msgid "This is our registration page!"
+msgstr "This is our login page!"
+
+#: .\taskly\templates\register.html:35
+msgid "I consent to the processing of my personal data:"
+msgstr ""
+
+#: .\taskly\templates\register.html:39
+msgid "I agree to the terms of the application:"
+msgstr ""
+
+#: .\taskly\templates\register.html:46
+#, fuzzy
+#| msgid "Don't have an account?"
+msgid "Already have an account?"
+msgstr "Don't have an account?"

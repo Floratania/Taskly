@@ -1,0 +1,184 @@
+{% load static %}
+{% load i18n %}
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+        <title> Taskly </title>
+
+        <style>
+          div {
+            margin-top: 10px; 
+            margin-bottom: 10px; 
+        }
+      
+        </style>
+
+    </head>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+
+        <a class="navbar-brand main-heading"> 
+                
+          &nbsp; Taskly
+        
+        </a>
+    
+    
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+    
+        </button>
+    
+    
+          <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+    
+            
+            <ul class="navbar-nav ms-auto">
+    
+    
+              &nbsp;     &nbsp;     &nbsp; 
+    
+    
+              <li class="nav-item">
+          
+                <a class="btn btn-primary navbar-btn activeButton" type="button" href="{% url 'register' %}">{% trans 'Register' %}</a>
+    
+              </li>
+    
+    
+              &nbsp;     &nbsp;     &nbsp; 
+              
+    
+              <li class="nav-item">
+    
+                <a class="btn btn-primary navbar-btn" type="button" href="{% url 'my-login' %}">{% trans 'Login' %}</a>
+    
+              </li>
+    
+    
+              &nbsp;     &nbsp;     &nbsp; 
+              
+    
+            </ul>
+          
+            
+          </div>
+    
+    
+    </nav>
+
+    <br>
+
+
+    <body>
+  
+        <br>
+        <br>
+  
+        <div class="text-center">
+  
+        <h3>{% trans 'Welcome to Taskly - a home for your tasks.' %} </h3>
+  
+          <br>
+            
+        
+          <a class="btn btn-outline-primary navbar-btn" type="button" href="{% url 'register' %}">{% trans 'Register' %}</a>
+{% comment %}   
+        
+        </div>
+        <form action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ redirect_to }}" />
+          <select name="language">
+              {% get_current_language as current_language %}
+              {% get_available_languages as available_languages %}
+              {% for lang_code, lang_name in LANGUAGES %}
+                  <option value="{{ lang_code }}" {% if lang_code == current_language %}selected{% endif %}>
+                      {{ lang_name }}
+                  </option>
+              {% endfor %}
+          </select>
+          <input type="submit" value="Змінити мову" />
+      </form>
+
+      <a href="{% url 'set_language' %}?language=en">English</a>
+      <a href="{% url 'set_language' %}?language=uk">Українська</a>
+
+      <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}" />
+        <select name="language">
+            {% get_current_language as current_language %}
+            {% get_available_languages as available_languages %}
+            {% for lang_code, lang_name in LANGUAGES %}
+                <option value="{{ lang_code }}" {% if lang_code == current_language %}selected{% endif %}>
+                    {{ lang_name }}
+                </option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Змінити мову" />
+    </form> {% endcomment %}
+    
+  
+  
+      </body>
+
+
+
+    <br>
+
+    <script src="{% static 'js/app.js' %}"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+
+    crossorigin="anonymous">
+
+    </script>
+
+
+
+</html>
+
+<script>
+  $(document).ready(function(){
+      var activeButton = sessionStorage.getItem('activeButton');
+  
+      if(activeButton && activeButton !== '{% url "password_reset" %}' && activeButton !== '{% url "register" %}' ) {
+        $("a[href='" + activeButton + "']").addClass("active");
+      }
+  
+  
+      $(".navbar-btn").click(function(){
+          $(".navbar-btn").removeClass("active");
+          $(this).addClass("active");
+          sessionStorage.setItem('activeButton', $(this).attr('href'));
+      });
+  });
+  </script>
+

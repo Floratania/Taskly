@@ -1,0 +1,115 @@
+{% load static %}
+{% load i18n %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% trans "Taskly - Historical Task Activity" %}</title>
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        /* Style for circular profile picture */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; 
+            overflow: hidden; 
+            margin: 0 auto; 
+        }
+
+        .profile-pic img {
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; 
+        }
+    </style>
+</head>
+<body>
+    {% include 'profile/base.html' %}
+
+    <div class="container bg-white shadow-md p-5 form-layout" style="width: 650px;">
+        <div>
+            <h3>{% trans "Your Activity Data" %}</h3>
+            <hr>
+
+            <div style="display: flex;text-align: center;">
+                <div class="profile-pic">
+                    <img src="{{ profile.profile_pic.url }}" alt="{% trans "Profile Picture" %}">
+                </div>
+                <div style="flex: 2;">
+                    <br>
+                    <p>&nbsp;&nbsp;{% trans "Completed tasks:" %} {{ activity.total_tasks_completed }}</p>
+                    <p>&nbsp;&nbsp;{% trans "Assigned tasks:" %} {{ activity.total_tasks_assigned }}</p>
+                    <p>&nbsp;&nbsp;{% trans "In-progress tasks:" %} {{ activity.total_tasks_in_progress }}</p>
+                </div>
+            </div>
+        
+            <br> <br>
+          
+
+            <div id="activityChart" style="height: 400px; width: 100%;"></div>
+            
+            <div id="taskChart" style="width: 600px; height: 400px;"></div>
+            <p>{% trans "Last login:" %} {{ activity.last_login }}</p>
+            <script>
+                
+                var dates = {{ dates|safe }};
+                var taskCounts = {{ task_counts|safe }};
+
+                var trace = {
+                    x: dates,
+                    y: taskCounts,
+                    type: 'bar',
+                    marker: {
+                        color: 'rgb(55, 83, 109)', 
+                        width: 0.1
+                    }
+                };
+
+                var layout = {
+                    title: {% trans "'Number of added or updated task by day for the current month'" %},
+                    xaxis: {
+                        title: {% trans "'Date'" %}
+                    },
+                    yaxis: {
+                        title: {% trans "'Number of Tasks'" %}
+                    }
+                };
+
+                Plotly.newPlot('taskChart', [trace], layout);
+            </script>
+        </div>
+    </div>
+
+    <script>
+        var totalCompleted = {{ activity.total_tasks_completed }};
+        var totalAssigned = {{ activity.total_tasks_assigned }};
+        var totalInProgress = {{ activity.total_tasks_in_progress }};
+
+        var data = [{
+            x: [{% trans "'Completed'" %}, {% trans "'Assigned'" %}, {% trans "'In Progress'" %}],
+            y: [totalCompleted, totalAssigned, totalInProgress],
+            type: 'bar',
+            marker: {
+                color: ['Plum', 'DarkTurquoise', 'PeachPuff']
+            }
+        }];
+
+        var layout = {
+            title: {% trans "'Task Activity'" %},
+            xaxis: {
+                title: {% trans "'Task Status'" %}
+            },
+            yaxis: {
+                title: {% trans "'Number of Tasks'" %}
+            }
+        };
+
+        Plotly.newPlot('activityChart', data, layout);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% block content %}
+  <h1>{% trans "Task Dashboard" %}</h1> 
+
+  <canvas id="taskChart"></canvas>
+
+  <script>
+    var ctx = document.getElementById('taskChart').getContext('2d');
+    var taskChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Assigned', 'In progress', 'Done'],
+        datasets: [{
+          label: '{% trans "Number of tasks" %}', <!-- Название датасета -->
+          data: [
+            {{ tasks.filter(status='Assigned').count }}, <!-- Количество задач со статусом "Assigned" -->
+            {{ tasks.filter(status='option2').count }}, <!-- Количество задач со статусом "option2" (подставьте нужное значение) -->
+            {{ tasks.filter(status='option3').count }}, <!-- Количество задач со статусом "option3" (подставьте нужное значение) -->
+          ],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+{% endblock %}
